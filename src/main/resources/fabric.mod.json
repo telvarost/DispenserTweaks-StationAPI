@@ -7,7 +7,7 @@
   "description": "Enable aspects of modern dispenser behavior or use a modded variant for dispenser behavior.",
   "authors": [
     "Telvarost",
-    "MiTask"
+    "Slainlight"
   ],
   "contact": {
     "issues": "https://github.com/telvarost/DispenserTweaks-StationAPI/issues",
@@ -15,7 +15,7 @@
     "sources": "https://github.com/telvarost/DispenserTweaks-StationAPI/"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/dispensertweaks/icon.png",
 
   "environment": "*",

@@ -4,7 +4,7 @@ A StationAPI mod for Minecraft Beta 1.7.3 that allows for modern dispenser behav
 
 **If you're looking for modern Minecraft recipes:** https://github.com/telvarost/MostlyModernRecipes-StationAPI
 
-# Dispenser Tweaks
+# Dispenser Tweaks (Soon to use DispenserAPI)
 
 You will need ModMenu and GlassConfigAPI to change dispenser behavior. See installation instructions below.
 
