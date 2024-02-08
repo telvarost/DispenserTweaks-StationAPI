@@ -15,7 +15,7 @@ public class ItemUsedInCraftingListener {
      * @param event Item used in crafting event which fires whenever an item is consumed in crafting or an item is crafted
      */
     @EventListener
-    public void combineDurability(ItemUsedInCraftingEvent event) {
+    public void dispenserTweaks_consumeBucket(ItemUsedInCraftingEvent event) {
         if (!Config.ConfigFields.moddedDispenserFluidPlacement) {
             return;
         }

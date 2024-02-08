@@ -6,7 +6,6 @@
   "mixins": [
     "DispenserMixin",
     "FluidMixin",
-    "MinecraftAccessor",
     "TileEntityDispenserMixin"
   ],
   "server": [

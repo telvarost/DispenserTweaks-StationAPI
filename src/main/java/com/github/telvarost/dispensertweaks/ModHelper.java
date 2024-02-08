@@ -45,12 +45,6 @@ public class ModHelper {
 
     public static class ModHelperFields {
 
-        public static Boolean cancelDestroyBlocks = false;
-
-        public static Integer numberOfDamagedBlocks = 0;
-
-        public static Integer numberOfGhastFireballs = 0;
-
         public static Boolean blocksAndItemsRegistered = false;
 
         public static Integer emptySlotAvailable = -1;
