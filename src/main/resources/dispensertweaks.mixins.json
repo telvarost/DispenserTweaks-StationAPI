@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.telvarost.dispensertweaks.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "DispenserMixin",
+    "FluidMixin",
+    "MinecraftAccessor",
+    "TileEntityDispenserMixin"
+  ],
+  "server": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

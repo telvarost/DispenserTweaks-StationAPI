@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "dispensertweaks",
+  "version": "${version}",
+
+  "name": "DispenserTweaks",
+  "description": "Enable aspects of modern dispenser behavior or use a modded variant for dispenser behavior.",
+  "authors": [
+    "Telvarost",
+    "MiTask"
+  ],
+  "contact": {
+    "issues": "https://github.com/telvarost/DispenserTweaks-StationAPI/issues",
+    "homepage": "https://github.com/telvarost/DispenserTweaks-StationAPI/",
+    "sources": "https://github.com/telvarost/DispenserTweaks-StationAPI/"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/dispensertweaks/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "stationapi:event_bus": [
+      "com.github.telvarost.dispensertweaks.events.init.RecipeListener",
+      "com.github.telvarost.dispensertweaks.events.init.RegistryListener",
+      "com.github.telvarost.dispensertweaks.events.ItemUsedInCraftingListener"
+    ],
+    "stationapi:event_bus_client": [
+    ],
+    "stationapi:event_bus_server": [
+    ],
+    "gcapi": [
+      "com.github.telvarost.dispensertweaks.Config"
+    ],
+    "gcapi:presave": [
+      "com.github.telvarost.dispensertweaks.events.ConfigListener"
+    ]
+  },
+  "mixins": [
+    "dispensertweaks.mixins.json"
+  ],
+
+  "depends": {
+    "minecraft": "1.0.0-beta.7.3"
+  }
+}
