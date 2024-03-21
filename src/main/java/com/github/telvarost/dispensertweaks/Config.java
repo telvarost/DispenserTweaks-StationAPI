@@ -1,9 +1,7 @@
 package com.github.telvarost.dispensertweaks;
 
 import blue.endless.jankson.Comment;
-import net.glasslauncher.mods.api.gcapi.api.ConfigName;
-import net.glasslauncher.mods.api.gcapi.api.GConfig;
-import net.glasslauncher.mods.api.gcapi.api.MaxLength;
+import net.glasslauncher.mods.api.gcapi.api.*;
 
 public class Config {
 
@@ -14,14 +12,20 @@ public class Config {
 
         @ConfigName("Enable Lava Block As Fuel Source")
         @Comment("Restart required for changes to take effect")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public static Boolean enableLavaBlockSmeltingRecipe = true;
 
         @ConfigName("Modded Dispenser Fluid Placement")
         @Comment("Craft Fluids & Use Dispensers as Pumps")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public static Boolean moddedDispenserFluidPlacement = false;
 
         @ConfigName("Modern Dispenser Fluid Placement")
         @Comment("Restart required for modded variant only")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
         public static Boolean modernDispenserFluidPlacement = false;
     }
 }

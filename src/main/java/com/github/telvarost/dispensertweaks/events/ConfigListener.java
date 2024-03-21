@@ -16,7 +16,7 @@ import static com.github.telvarost.dispensertweaks.Config.config;
 public class ConfigListener implements PreConfigSavedListener {
 
     @Override
-    public void onPreConfigSaved(JsonObject jsonObject, JsonObject jsonObject1) {
+    public void onPreConfigSaved(int var1, JsonObject jsonObject, JsonObject jsonObject1) {
         /** - Update max stack size on config change */
         ModHelper.AttemptToSetStackSizeOfFluids();
     }
