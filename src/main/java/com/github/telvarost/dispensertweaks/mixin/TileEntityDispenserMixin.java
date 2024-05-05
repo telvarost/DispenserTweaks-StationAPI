@@ -34,27 +34,12 @@ abstract class TileEntityDispenserMixin extends BlockEntity implements Inventory
             return;
         }
 
-        int var1 = -1;
-        int var2 = 1;
         ModHelper.ModHelperFields.emptySlotAvailable = -1;
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
-            if (this.inventory[var3] != null) {
-                if (this.random.nextInt(var2++) == 0) {
-                    var1 = var3;
-                    ModHelper.ModHelperFields.lastSlotDispensed = var1;
-                }
-            }
-            else
-            {
+            if (this.inventory[var3] == null) {
                 ModHelper.ModHelperFields.emptySlotAvailable = var3;
             }
-        }
-
-        if (var1 >= 0) {
-            cir.setReturnValue(this.removeStack(var1, 1));
-        } else {
-            cir.setReturnValue(null);
         }
     }
 }
