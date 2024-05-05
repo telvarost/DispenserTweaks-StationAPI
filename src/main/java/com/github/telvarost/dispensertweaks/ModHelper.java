@@ -1,42 +1,40 @@
 package com.github.telvarost.dispensertweaks;
 
-import net.minecraft.block.BlockBase;
-import net.minecraft.item.ItemBase;
-
-import java.util.ArrayList;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 
 public class ModHelper {
     public static void AttemptToSetStackSizeOfFluids()
     {
         if (ModHelper.ModHelperFields.blocksAndItemsRegistered)
         {
-            ItemBase waterItem = BlockBase.FLOWING_WATER.asItem();
-            ItemBase lavaItem  = BlockBase.FLOWING_LAVA.asItem();
+            Item waterItem = Block.FLOWING_WATER.asItem();
+            Item lavaItem  = Block.FLOWING_LAVA.asItem();
 
             if (Config.ConfigFields.moddedDispenserFluidPlacement) {
                 if (null != waterItem) {
-                    if (1 != waterItem.getMaxStackSize()) {
-                        waterItem.setMaxStackSize(1);
+                    if (1 != waterItem.getMaxCount()) {
+                        waterItem.setMaxCount(1);
                     }
                 }
 
                 if (null != lavaItem) {
-                    if (1 != lavaItem.getMaxStackSize()) {
-                        lavaItem.setMaxStackSize(1);
+                    if (1 != lavaItem.getMaxCount()) {
+                        lavaItem.setMaxCount(1);
                     }
                 }
             }
             else
             {
                 if (null != waterItem) {
-                    if (64 != waterItem.getMaxStackSize()) {
-                        waterItem.setMaxStackSize(64);
+                    if (64 != waterItem.getMaxCount()) {
+                        waterItem.setMaxCount(64);
                     }
                 }
 
                 if (null != lavaItem) {
-                    if (64 != lavaItem.getMaxStackSize()) {
-                        lavaItem.setMaxStackSize(64);
+                    if (64 != lavaItem.getMaxCount()) {
+                        lavaItem.setMaxCount(64);
                     }
                 }
             }

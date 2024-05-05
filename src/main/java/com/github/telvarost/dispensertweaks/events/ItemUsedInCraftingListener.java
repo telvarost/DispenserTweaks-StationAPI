@@ -2,10 +2,8 @@ package com.github.telvarost.dispensertweaks.events;
 
 import com.github.telvarost.dispensertweaks.Config;
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.minecraft.block.BlockBase;
+import net.minecraft.block.Block;
 import net.modificationstation.stationapi.api.event.container.slot.ItemUsedInCraftingEvent;
-
-import static java.lang.Math.floor;
 
 public class ItemUsedInCraftingListener {
 
@@ -24,13 +22,13 @@ public class ItemUsedInCraftingListener {
            && (null != event.itemUsed)
            )
         {
-            if (BlockBase.FLOWING_WATER.id == event.itemCrafted.itemId)
+            if (Block.FLOWING_WATER.id == event.itemCrafted.itemId)
             {
-                event.craftingMatrix.setInventoryItem(event.itemOrdinal, null);
+                event.craftingMatrix.setStack(event.itemOrdinal, null);
             }
-            else if (BlockBase.FLOWING_LAVA.id == event.itemCrafted.itemId)
+            else if (Block.FLOWING_LAVA.id == event.itemCrafted.itemId)
             {
-                event.craftingMatrix.setInventoryItem(event.itemOrdinal, null);
+                event.craftingMatrix.setStack(event.itemOrdinal, null);
             }
         }
     }

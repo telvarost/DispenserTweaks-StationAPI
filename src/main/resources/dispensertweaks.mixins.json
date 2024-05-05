@@ -4,7 +4,6 @@
   "package": "com.github.telvarost.dispensertweaks.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "DispenserMixin",
     "FluidMixin",
     "TileEntityDispenserMixin"
   ],
