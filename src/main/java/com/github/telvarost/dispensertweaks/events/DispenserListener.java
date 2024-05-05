@@ -1,5 +1,6 @@
 package com.github.telvarost.dispensertweaks.events;
 
+import com.github.telvarost.dispensertweaks.Config;
 import com.github.telvarost.dispensertweaks.ModHelper;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
@@ -21,7 +22,7 @@ public class DispenserListener {
             BlockPos facing = context.getFacingBlockPos();
 
             // Make buckets pickup liquids
-            if (context.itemStack.itemId == Item.BUCKET.id) {
+            if (Config.ConfigFields.modernDispenserFluidPlacement && context.itemStack.itemId == Item.BUCKET.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.WATER && world.getBlockMeta(facing.x, facing.y, facing.z) == 0) {
                     world.method_154(facing.x, facing.y, facing.z, 0, 0);
                     world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
@@ -40,7 +41,7 @@ public class DispenserListener {
             }
 
             // Make water buckets place water
-            if (context.itemStack.itemId == Item.WATER_BUCKET.id) {
+            if (Config.ConfigFields.modernDispenserFluidPlacement && context.itemStack.itemId == Item.WATER_BUCKET.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.AIR || !world.method_1779(facing.x, facing.y, facing.z).method_905()) {
                     if (world.method_1779(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
@@ -60,7 +61,7 @@ public class DispenserListener {
             }
 
             // Make lava buckets place lava
-            if (context.itemStack.itemId == Item.LAVA_BUCKET.id) {
+            if (Config.ConfigFields.modernDispenserFluidPlacement && context.itemStack.itemId == Item.LAVA_BUCKET.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.AIR || !world.method_1779(facing.x, facing.y, facing.z).method_905()) {
                     if (world.method_1779(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
@@ -80,7 +81,7 @@ public class DispenserListener {
             }
 
             // Special Modded Place/Pick Up Water Tiles
-            if (context.itemStack.itemId == Block.FLOWING_WATER.id) {
+            if (Config.ConfigFields.moddedDispenserFluidPlacement && context.itemStack.itemId == Block.FLOWING_WATER.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.AIR || !world.method_1779(facing.x, facing.y, facing.z).method_905()) {
                     if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
                        && (0 == world.getBlockMeta(facing.x, facing.y, facing.z))
@@ -119,7 +120,7 @@ public class DispenserListener {
             }
 
             // Special Modded Place/Pick Up Lava Tiles
-            if (context.itemStack.itemId == Block.FLOWING_LAVA.id) {
+            if (Config.ConfigFields.moddedDispenserFluidPlacement &&context.itemStack.itemId == Block.FLOWING_LAVA.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.AIR || !world.method_1779(facing.x, facing.y, facing.z).method_905()) {
                     if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
                        && (0 == world.getBlockMeta(facing.x, facing.y, facing.z))
