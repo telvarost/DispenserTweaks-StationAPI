@@ -43,6 +43,7 @@ public class DispenserListener {
             if (context.itemStack.itemId == Item.WATER_BUCKET.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.AIR) {
                     world.setBlockStateWithNotify(facing.x, facing.y, facing.z, Block.WATER.getDefaultState());
+                    world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
                     context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                     event.cancel();
                 }
@@ -52,6 +53,7 @@ public class DispenserListener {
             if (context.itemStack.itemId == Item.LAVA_BUCKET.id) {
                 if (world.method_1779(facing.x, facing.y, facing.z) == Material.AIR) {
                     world.setBlockStateWithNotify(facing.x, facing.y, facing.z, Block.LAVA.getDefaultState());
+                    world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
                     context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                     event.cancel();
                 }
