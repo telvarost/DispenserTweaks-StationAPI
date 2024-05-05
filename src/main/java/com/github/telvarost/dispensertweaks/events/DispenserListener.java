@@ -46,12 +46,14 @@ public class DispenserListener {
                     if (world.method_1779(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
+                        world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
+                        world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
@@ -66,12 +68,14 @@ public class DispenserListener {
                     if (world.method_1779(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
+                        world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
+                        world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
