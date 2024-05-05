@@ -2,6 +2,7 @@ package com.github.telvarost.dispensertweaks.events;
 
 import com.github.telvarost.dispensertweaks.Config;
 import com.github.telvarost.dispensertweaks.ModHelper;
+import com.github.telvarost.dispensertweaks.mixin.WorldAccessor;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -47,14 +48,14 @@ public class DispenserListener {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
                         event.cancel();
@@ -69,14 +70,14 @@ public class DispenserListener {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
                         world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
                         event.cancel();
@@ -103,13 +104,13 @@ public class DispenserListener {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
                         world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.WATER.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
                         world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
                         event.cancel();
                     }
@@ -142,13 +143,13 @@ public class DispenserListener {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
                         world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
-                        world.method_244(context.dispenser.x, context.dispenser.y, context.dispenser.z, Block.LAVA.id);
+                        ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
                         world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
                         event.cancel();
                     }
