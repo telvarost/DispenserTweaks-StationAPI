@@ -1,6 +1,7 @@
 package com.github.telvarost.dispensertweaks.events;
 
 import com.github.telvarost.dispensertweaks.Config;
+import com.github.telvarost.dispensertweaks.DispenserSoundEnum;
 import com.github.telvarost.dispensertweaks.ModHelper;
 import com.github.telvarost.dispensertweaks.mixin.WorldAccessor;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -28,7 +29,9 @@ public class DispenserListener {
                     world.method_154(facing.x, facing.y, facing.z, 0, 0);
                     world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                     context.dispenser.setStack(context.slot, new ItemStack(Item.WATER_BUCKET));
-                    world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                    if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                        world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                    }
                     event.cancel();
                 }
 
@@ -36,7 +39,9 @@ public class DispenserListener {
                     world.method_154(facing.x, facing.y, facing.z, 0, 0);
                     world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                     context.dispenser.setStack(context.slot, new ItemStack(Item.LAVA_BUCKET));
-                    world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                    if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                        world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                    }
                     event.cancel();
                 }
             }
@@ -50,14 +55,22 @@ public class DispenserListener {
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
-                        world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
-                        world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     }
                 }
@@ -72,14 +85,22 @@ public class DispenserListener {
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
-                        world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Item.BUCKET));
-                        world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     }
                 }
@@ -98,20 +119,30 @@ public class DispenserListener {
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Block.FLOWING_WATER));
                         context.dispenser.setStack(ModHelper.ModHelperFields.emptySlotAvailable, new ItemStack(Block.FLOWING_WATER));
-                        world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     } else if (world.method_1779(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
-                        world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.WATER.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.WATER.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.WATER.id);
-                        world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.playSound(context.dispenser.x, context.dispenser.y, context.dispenser.z, "liquid.splash", 0.5F, 2.6F + (world.field_214.nextFloat() - world.field_214.nextFloat()) * 0.8F);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     }
                 } else {
@@ -137,20 +168,30 @@ public class DispenserListener {
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         context.dispenser.setStack(context.slot, new ItemStack(Block.FLOWING_LAVA));
                         context.dispenser.setStack(ModHelper.ModHelperFields.emptySlotAvailable, new ItemStack(Block.FLOWING_LAVA));
-                        world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     } else if (world.method_1779(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
-                        world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     } else {
                         world.method_154(facing.x, facing.y, facing.z, Block.LAVA.id, 0);
                         world.method_244(facing.x, facing.y, facing.z, Block.LAVA.id);
                         ((WorldAccessor)world).invokeUpdateBlock(facing.x, facing.y, facing.z, Block.LAVA.id);
-                        world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        if (DispenserSoundEnum.FLUID_SOUNDS == Config.config.dispenserSoundEnum) {
+                            world.method_230(1002, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        } else if (DispenserSoundEnum.NO_SOUND != Config.config.dispenserSoundEnum) {
+                            world.method_230(1000, context.dispenser.x, context.dispenser.y, context.dispenser.z, 0);
+                        }
                         event.cancel();
                     }
                 } else {
