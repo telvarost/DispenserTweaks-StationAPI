@@ -23,7 +23,8 @@
     "stationapi:event_bus": [
       "com.github.telvarost.dispensertweaks.events.init.RecipeListener",
       "com.github.telvarost.dispensertweaks.events.init.RegistryListener",
-      "com.github.telvarost.dispensertweaks.events.ItemUsedInCraftingListener"
+      "com.github.telvarost.dispensertweaks.events.ItemUsedInCraftingListener",
+      "com.github.telvarost.dispensertweaks.events.DispenserListener"
     ],
     "stationapi:event_bus_client": [
     ],
@@ -34,6 +35,9 @@
     ],
     "gcapi:presave": [
       "com.github.telvarost.dispensertweaks.events.ConfigListener"
+    ],
+    "gcapi:factory_provider": [
+      "com.github.telvarost.dispensertweaks.DispenserSoundEnumFactory"
     ]
   },
   "mixins": [

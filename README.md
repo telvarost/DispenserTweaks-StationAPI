@@ -11,6 +11,8 @@ You will need ModMenu and GlassConfigAPI to change dispenser behavior. See insta
 
 ## List of changes
 
+* Dispense Fluid Placement Sound Selection
+  * Select between fluid sounds, dispenser clicks, or no sound.
 * Modern Dispenser Fluid Placement, default false.
   * Allows dispensers to place and pick up water/lava with buckets
 * Modded Dispenser Fluid Placement, default false.

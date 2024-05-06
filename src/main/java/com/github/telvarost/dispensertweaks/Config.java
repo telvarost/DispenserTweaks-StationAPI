@@ -5,10 +5,14 @@ import net.glasslauncher.mods.api.gcapi.api.*;
 
 public class Config {
 
-    @GConfig(value = "config", visibleName = "DispenserTweaks Config")
+    @GConfig(value = "config", visibleName = "DispenserTweaks")
     public static ConfigFields config = new ConfigFields();
 
     public static class ConfigFields {
+        @ConfigName("Dispense Fluid Sound Selection")
+        @MultiplayerSynced
+        @ValueOnVanillaServer(integerValue = 0)
+        public static DispenserSoundEnum dispenserSoundEnum = DispenserSoundEnum.FLUID_SOUNDS;
 
         @ConfigName("Enable Lava Block As Fuel Source")
         @Comment("Restart required for changes to take effect")
