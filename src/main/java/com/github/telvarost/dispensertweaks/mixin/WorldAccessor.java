@@ -6,6 +6,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(World.class)
 public interface WorldAccessor {
-    @Invoker("method_253")
+    @Invoker("neighborUpdate")
     public void invokeUpdateBlock(int x, int t, int z, int l);
 }
