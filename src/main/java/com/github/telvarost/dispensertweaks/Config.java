@@ -1,35 +1,38 @@
 package com.github.telvarost.dispensertweaks;
 
-import blue.endless.jankson.Comment;
-import net.glasslauncher.mods.api.gcapi.api.*;
+import net.glasslauncher.mods.gcapi3.api.*;
 
 public class Config {
 
-    @GConfig(value = "config", visibleName = "DispenserTweaks")
+    @ConfigRoot(value = "config", visibleName = "DispenserTweaks")
     public static ConfigFields config = new ConfigFields();
 
     public static class ConfigFields {
-        @ConfigName("Dispense Fluid Sound Selection")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(integerValue = 0)
-        public static DispenserSoundEnum dispenserSoundEnum = DispenserSoundEnum.FLUID_SOUNDS;
+        @ConfigEntry(
+                name = "Dispense Fluid Sound Selection",
+                multiplayerSynced = true
+        )
+        public DispenserSoundEnum dispenserSoundEnum = DispenserSoundEnum.FLUID_SOUNDS;
 
-        @ConfigName("Enable Lava Block As Fuel Source")
-        @Comment("Restart required for changes to take effect")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean enableLavaBlockSmeltingRecipe = true;
+        @ConfigEntry(
+                name = "Enable Lava Block As Fuel Source",
+                description = "Restart required for changes to take effect",
+                multiplayerSynced = true
+        )
+        public Boolean enableLavaBlockSmeltingRecipe = true;
 
-        @ConfigName("Modded Dispenser Fluid Placement")
-        @Comment("Craft Fluids & Use Dispensers as Pumps")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean moddedDispenserFluidPlacement = false;
+        @ConfigEntry(
+                name = "Modded Dispenser Fluid Placement",
+                description = "Craft Fluids & Use Dispensers as Pumps",
+                multiplayerSynced = true
+        )
+        public Boolean moddedDispenserFluidPlacement = false;
 
-        @ConfigName("Modern Dispenser Fluid Placement")
-        @Comment("Restart required for modded variant only")
-        @MultiplayerSynced
-        @ValueOnVanillaServer(booleanValue = TriBoolean.FALSE)
-        public static Boolean modernDispenserFluidPlacement = false;
+        @ConfigEntry(
+                name = "Modern Dispenser Fluid Placement",
+                description = "Restart required for modded variant only",
+                multiplayerSynced = true
+        )
+        public Boolean modernDispenserFluidPlacement = false;
     }
 }

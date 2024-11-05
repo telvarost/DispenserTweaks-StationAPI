@@ -11,7 +11,7 @@ public class ModHelper {
             Item waterItem = Block.FLOWING_WATER.asItem();
             Item lavaItem  = Block.FLOWING_LAVA.asItem();
 
-            if (Config.ConfigFields.moddedDispenserFluidPlacement) {
+            if (Config.config.moddedDispenserFluidPlacement) {
                 if (null != waterItem) {
                     if (1 != waterItem.getMaxCount()) {
                         waterItem.setMaxCount(1);

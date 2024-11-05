@@ -24,7 +24,7 @@ public class DispenserListener {
             BlockPos facing = context.getFacingBlockPos();
 
             // Make buckets pickup liquids
-            if (Config.ConfigFields.modernDispenserFluidPlacement && context.itemStack.itemId == Item.BUCKET.id) {
+            if (Config.config.modernDispenserFluidPlacement && context.itemStack.itemId == Item.BUCKET.id) {
                 if (world.getMaterial(facing.x, facing.y, facing.z) == Material.WATER && world.getBlockMeta(facing.x, facing.y, facing.z) == 0) {
                     world.setBlockWithoutNotifyingNeighbors(facing.x, facing.y, facing.z, 0, 0);
                     world.notifyNeighbors(facing.x, facing.y, facing.z, Block.WATER.id);
@@ -47,7 +47,7 @@ public class DispenserListener {
             }
 
             // Make water buckets place water
-            if (Config.ConfigFields.modernDispenserFluidPlacement && context.itemStack.itemId == Item.WATER_BUCKET.id) {
+            if (Config.config.modernDispenserFluidPlacement && context.itemStack.itemId == Item.WATER_BUCKET.id) {
                 if (world.getMaterial(facing.x, facing.y, facing.z) == Material.AIR || !world.getMaterial(facing.x, facing.y, facing.z).isSolid()) {
                     if (world.getMaterial(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
@@ -77,7 +77,7 @@ public class DispenserListener {
             }
 
             // Make lava buckets place lava
-            if (Config.ConfigFields.modernDispenserFluidPlacement && context.itemStack.itemId == Item.LAVA_BUCKET.id) {
+            if (Config.config.modernDispenserFluidPlacement && context.itemStack.itemId == Item.LAVA_BUCKET.id) {
                 if (world.getMaterial(facing.x, facing.y, facing.z) == Material.AIR || !world.getMaterial(facing.x, facing.y, facing.z).isSolid()) {
                     if (world.getMaterial(facing.x, facing.y, facing.z) != Material.AIR) {
                         Block.BLOCKS[world.getBlockId(facing.x, facing.y, facing.z)].dropStacks(world, facing.x, facing.y, facing.z, world.getBlockMeta(facing.x, facing.y, facing.z));
@@ -107,7 +107,7 @@ public class DispenserListener {
             }
 
             // Special Modded Place/Pick Up Water Tiles
-            if (Config.ConfigFields.moddedDispenserFluidPlacement && context.itemStack.itemId == Block.FLOWING_WATER.id) {
+            if (Config.config.moddedDispenserFluidPlacement && context.itemStack.itemId == Block.FLOWING_WATER.id) {
                 if (world.getMaterial(facing.x, facing.y, facing.z) == Material.AIR || !world.getMaterial(facing.x, facing.y, facing.z).isSolid()) {
                     if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
                        && (0 == world.getBlockMeta(facing.x, facing.y, facing.z))
@@ -156,7 +156,7 @@ public class DispenserListener {
             }
 
             // Special Modded Place/Pick Up Lava Tiles
-            if (Config.ConfigFields.moddedDispenserFluidPlacement &&context.itemStack.itemId == Block.FLOWING_LAVA.id) {
+            if (Config.config.moddedDispenserFluidPlacement &&context.itemStack.itemId == Block.FLOWING_LAVA.id) {
                 if (world.getMaterial(facing.x, facing.y, facing.z) == Material.AIR || !world.getMaterial(facing.x, facing.y, facing.z).isSolid()) {
                     if (  (-1 < ModHelper.ModHelperFields.emptySlotAvailable)
                        && (0 == world.getBlockMeta(facing.x, facing.y, facing.z))

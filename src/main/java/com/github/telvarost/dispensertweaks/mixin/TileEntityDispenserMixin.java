@@ -27,7 +27,7 @@ abstract class TileEntityDispenserMixin extends BlockEntity implements Inventory
 
     @Inject(method = "getItemToDispense", at = @At("HEAD"), cancellable = true)
     private void dispense(CallbackInfoReturnable<ItemStack> cir) {
-        if (!Config.ConfigFields.moddedDispenserFluidPlacement)
+        if (!Config.config.moddedDispenserFluidPlacement)
         {
             return;
         }

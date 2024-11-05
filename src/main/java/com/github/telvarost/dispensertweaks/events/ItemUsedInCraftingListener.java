@@ -14,7 +14,7 @@ public class ItemUsedInCraftingListener {
      */
     @EventListener
     public void dispenserTweaks_consumeBucket(ItemUsedInCraftingEvent event) {
-        if (!Config.ConfigFields.moddedDispenserFluidPlacement) {
+        if (!Config.config.moddedDispenserFluidPlacement) {
             return;
         }
 

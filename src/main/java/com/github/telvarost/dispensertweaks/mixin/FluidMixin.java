@@ -25,13 +25,13 @@ abstract class FluidMixin extends Block {
 
     @Inject(method = "onPlaced", at = @At("TAIL"), cancellable = true)
     public void dispenserTweaks_onBlockPlaced(World arg, int i, int j, int k, CallbackInfo ci) {
-        if (!Config.ConfigFields.moddedDispenserFluidPlacement) {
+        if (!Config.config.moddedDispenserFluidPlacement) {
             return;
         }
 
         if (arg.isAir(i, j, k) || !arg.getMaterial(i, j, k).isSolid()) {
             int blockId = arg.getBlockId(i, j, k);
-            if (arg.dimension.field_2176 && blockId == Block.FLOWING_WATER.id) {
+            if (arg.dimension.evaporatesWater && blockId == Block.FLOWING_WATER.id) {
                 PlayerEntity player = PlayerHelper.getPlayerFromGame();
                 if (null != player) {
                     float var4 = 1.0F;
